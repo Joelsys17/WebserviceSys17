@@ -52,5 +52,28 @@ namespace WindowsFormsApplication3
             string load = SearchButton.Text;
             richTextBox1.Text = obj.GetWebsiteHtml(load);
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Select_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            panel1.Visible = true;
+        }
+
+        private void uppgift2_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel3.Visible = true;
+            panel3.Location = new Point(81, 31);
+        }
+
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = obj.webobject();
+        }
     }
 }

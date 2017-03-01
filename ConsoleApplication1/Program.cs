@@ -17,6 +17,9 @@ namespace ConsoleApplication1
             obj.GetWebsiteHtml(UserInput);
             Console.WriteLine("File contains:" + obj.GetWebsiteHtml(UserInput));
             Console.ReadKey();
+            Console.WriteLine("Would you like to read all objects in database?");
+            Console.ReadKey();
+
         }
 
 

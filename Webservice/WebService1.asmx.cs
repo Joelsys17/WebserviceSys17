@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -33,6 +36,42 @@ namespace Webservice
         }
 
         [WebMethod]
+        public DataTable webobject()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name"))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            dt.TableName = "Uppgift 2";
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+            }
+
+    [WebMethod]
+    public void sqlstring()
+    {
+        string sql = "select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name = @Parameter";
+string variable;
+using (var connection = new SqlConnection("Your Connection String"))
+using (var command = new SqlCommand(sql, connection))
+{
+    command.Parameters.AddWithValue("@Parameter", 20);
+    connection.Open();
+    variable = (string)command.ExecuteScalar();
+}
+    }
+
+    [WebMethod]
         public void Upload(byte[] contents,  string filenamesave)
         {
             var appData = Server.MapPath("C:/Web");
@@ -50,5 +89,4 @@ namespace Webservice
             }
         }
     }
-}
 
