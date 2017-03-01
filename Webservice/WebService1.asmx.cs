@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Services;
@@ -18,6 +19,18 @@ namespace Webservice
     // [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
+        [WebMethod]
+        public String GetWebsiteHtml(String url)
+        {
+            WebRequest request = WebRequest.Create(url);
+            WebResponse response = request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream);
+            string result = reader.ReadToEnd();
+            stream.Dispose();
+            reader.Dispose();
+            return result;
+        }
 
         [WebMethod]
         public void Upload(byte[] contents,  string filenamesave)
@@ -38,3 +51,4 @@ namespace Webservice
         }
     }
 }
+

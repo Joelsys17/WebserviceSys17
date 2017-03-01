@@ -13,9 +13,10 @@ namespace ConsoleApplication1
             localhost.WebService1 obj = new localhost.WebService1();
             Console.WriteLine("What file should be read? ");
             string UserInput = Console.ReadLine();
-            Console.WriteLine("You have entered: " + UserInput);            
-            obj.txtFile(UserInput);
-            Console.WriteLine("File contains:" + UserInput);
+            Console.WriteLine("You have entered: " + UserInput);
+            obj.GetWebsiteHtml(UserInput);
+            Console.WriteLine("File contains:" + obj.GetWebsiteHtml(UserInput));
+            Console.ReadKey();
         }
 
 

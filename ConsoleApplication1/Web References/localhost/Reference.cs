@@ -29,6 +29,8 @@ namespace ConsoleApplication1.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="WebService1Soap", Namespace="http://microsoft.com/webservices/")]
     public partial class WebService1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback GetWebsiteHtmlOperationCompleted;
+        
         private System.Threading.SendOrPostCallback UploadOperationCompleted;
         
         private System.Threading.SendOrPostCallback txtFileOperationCompleted;
@@ -72,32 +74,64 @@ namespace ConsoleApplication1.localhost {
         }
         
         /// <remarks/>
+        public event GetWebsiteHtmlCompletedEventHandler GetWebsiteHtmlCompleted;
+        
+        /// <remarks/>
         public event UploadCompletedEventHandler UploadCompleted;
         
         /// <remarks/>
         public event txtFileCompletedEventHandler txtFileCompleted;
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://microsoft.com/webservices/GetWebsiteHtml", RequestNamespace="http://microsoft.com/webservices/", ResponseNamespace="http://microsoft.com/webservices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetWebsiteHtml(string url) {
+            object[] results = this.Invoke("GetWebsiteHtml", new object[] {
+                        url});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetWebsiteHtmlAsync(string url) {
+            this.GetWebsiteHtmlAsync(url, null);
+        }
+        
+        /// <remarks/>
+        public void GetWebsiteHtmlAsync(string url, object userState) {
+            if ((this.GetWebsiteHtmlOperationCompleted == null)) {
+                this.GetWebsiteHtmlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWebsiteHtmlOperationCompleted);
+            }
+            this.InvokeAsync("GetWebsiteHtml", new object[] {
+                        url}, this.GetWebsiteHtmlOperationCompleted, userState);
+        }
+        
+        private void OnGetWebsiteHtmlOperationCompleted(object arg) {
+            if ((this.GetWebsiteHtmlCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetWebsiteHtmlCompleted(this, new GetWebsiteHtmlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://microsoft.com/webservices/Upload", RequestNamespace="http://microsoft.com/webservices/", ResponseNamespace="http://microsoft.com/webservices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Upload([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] contents, string filename) {
+        public void Upload([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] contents, string filenamesave) {
             this.Invoke("Upload", new object[] {
                         contents,
-                        filename});
+                        filenamesave});
         }
         
         /// <remarks/>
-        public void UploadAsync(byte[] contents, string filename) {
-            this.UploadAsync(contents, filename, null);
+        public void UploadAsync(byte[] contents, string filenamesave) {
+            this.UploadAsync(contents, filenamesave, null);
         }
         
         /// <remarks/>
-        public void UploadAsync(byte[] contents, string filename, object userState) {
+        public void UploadAsync(byte[] contents, string filenamesave, object userState) {
             if ((this.UploadOperationCompleted == null)) {
                 this.UploadOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUploadOperationCompleted);
             }
             this.InvokeAsync("Upload", new object[] {
                         contents,
-                        filename}, this.UploadOperationCompleted, userState);
+                        filenamesave}, this.UploadOperationCompleted, userState);
         }
         
         private void OnUploadOperationCompleted(object arg) {
@@ -152,6 +186,32 @@ namespace ConsoleApplication1.localhost {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void GetWebsiteHtmlCompletedEventHandler(object sender, GetWebsiteHtmlCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetWebsiteHtmlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetWebsiteHtmlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
         }
     }
     
