@@ -22,6 +22,7 @@ namespace Webservice
     // [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
+        private SqlConnection con = new SqlConnection(@"Data Source=GEDDA;Initial Catalog=Cronus;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         [WebMethod]
         public String GetWebsiteHtml(String url)
         {
@@ -38,37 +39,36 @@ namespace Webservice
         [WebMethod]
         public DataTable webobject()
         {
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name"))
-                {
-                    using (SqlDataAdapter sda = new SqlDataAdapter())
-                    {
-                        cmd.Connection = con;
-                        sda.SelectCommand = cmd;
-                        using (DataTable dt = new DataTable())
-                        {
-                            dt.TableName = "Uppgift 2";
-                            sda.Fill(dt);
-                            return dt;
-                        }
-                    }
-                }
+                SqlCommand cmd = new SqlCommand("select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name", con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                dt.TableName = "All objects";
+                sda.Fill(dt);
+                return dt;
             }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
 
-    [WebMethod]
+        [WebMethod]
     public void sqlstring()
     {
-        string sql = "select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name = @Parameter";
+            SqlCommand cmd = new SqlCommand("select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name = @Parameter");
 string variable;
-using (var connection = new SqlConnection("Your Connection String"))
-using (var command = new SqlCommand(sql, connection))
+try
 {
-    command.Parameters.AddWithValue("@Parameter", 20);
-    connection.Open();
-    variable = (string)command.ExecuteScalar();
+    cmd.Parameters.AddWithValue("@Parameter", 20);
+    con.Open();
+    variable = (string)cmd.ExecuteScalar();
 }
+            catch (SqlException)
+            {
+                throw;
+            }
     }
 
     [WebMethod]
@@ -89,4 +89,6 @@ using (var command = new SqlCommand(sql, connection))
             }
         }
     }
+}
+
 

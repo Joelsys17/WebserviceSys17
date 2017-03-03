@@ -55,7 +55,7 @@ namespace WindowsFormsApplication3
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Select_Click(object sender, EventArgs e)
