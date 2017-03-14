@@ -16,6 +16,33 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="webobject">
+        <s:complexType />
+      </s:element>
+      <s:element name="webobjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="webobjectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sqlstring">
+        <s:complexType />
+      </s:element>
+      <s:element name="sqlstringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sqlstringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Upload">
         <s:complexType>
           <s:sequence>
@@ -49,6 +76,18 @@
   <wsdl:message name="GetWebsiteHtmlSoapOut">
     <wsdl:part name="parameters" element="tns:GetWebsiteHtmlResponse" />
   </wsdl:message>
+  <wsdl:message name="webobjectSoapIn">
+    <wsdl:part name="parameters" element="tns:webobject" />
+  </wsdl:message>
+  <wsdl:message name="webobjectSoapOut">
+    <wsdl:part name="parameters" element="tns:webobjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="sqlstringSoapIn">
+    <wsdl:part name="parameters" element="tns:sqlstring" />
+  </wsdl:message>
+  <wsdl:message name="sqlstringSoapOut">
+    <wsdl:part name="parameters" element="tns:sqlstringResponse" />
+  </wsdl:message>
   <wsdl:message name="UploadSoapIn">
     <wsdl:part name="parameters" element="tns:Upload" />
   </wsdl:message>
@@ -66,6 +105,14 @@
       <wsdl:input message="tns:GetWebsiteHtmlSoapIn" />
       <wsdl:output message="tns:GetWebsiteHtmlSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="webobject">
+      <wsdl:input message="tns:webobjectSoapIn" />
+      <wsdl:output message="tns:webobjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sqlstring">
+      <wsdl:input message="tns:sqlstringSoapIn" />
+      <wsdl:output message="tns:sqlstringSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Upload">
       <wsdl:input message="tns:UploadSoapIn" />
       <wsdl:output message="tns:UploadSoapOut" />
@@ -79,6 +126,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetWebsiteHtml">
       <soap:operation soapAction="http://microsoft.com/webservices/GetWebsiteHtml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="webobject">
+      <soap:operation soapAction="http://microsoft.com/webservices/webobject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sqlstring">
+      <soap:operation soapAction="http://microsoft.com/webservices/sqlstring" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -109,6 +174,24 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetWebsiteHtml">
       <soap12:operation soapAction="http://microsoft.com/webservices/GetWebsiteHtml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="webobject">
+      <soap12:operation soapAction="http://microsoft.com/webservices/webobject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sqlstring">
+      <soap12:operation soapAction="http://microsoft.com/webservices/sqlstring" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

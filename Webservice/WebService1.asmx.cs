@@ -22,7 +22,7 @@ namespace Webservice
     // [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
-        private SqlConnection con = new SqlConnection(@"Data Source=GEDDA;Initial Catalog=Cronus;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        private SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-5C3JSVR;Initial Catalog=Demo Database NAV (5-0);Integrated Security=True;");
         [WebMethod]
         public String GetWebsiteHtml(String url)
         {
@@ -41,7 +41,7 @@ namespace Webservice
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM sys.objects WHERE schema_id = SCHEMA_ID('dbo')", con);
                 DataTable dt = new DataTable();
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 dt.TableName = "All objects";
@@ -55,22 +55,23 @@ namespace Webservice
         }
 
         [WebMethod]
-    public void sqlstring()
+    public DataTable sqlstring()
     {
-            SqlCommand cmd = new SqlCommand("select name, type_desc from sys.objects WHERE type in ('C', 'D', 'F', 'L', 'P', 'PK', 'RF', 'TR', 'UQ', 'V', 'X')unionselect name, type_desc from sys.indexesorder by name = @Parameter");
-string variable;
 try
 {
-    cmd.Parameters.AddWithValue("@Parameter", 20);
-    con.Open();
-    variable = (string)cmd.ExecuteScalar();
-}
+                SqlCommand cmd = new SqlCommand("SELECT * FROM sys.objects WHERE schema_id = SCHEMA_ID('dbo')", con);
+                DataTable dt2 = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                dt2.TableName = "All objects 1";
+                sda.Fill(dt2);
+                return dt2;
+            }
             catch (SqlException)
             {
                 throw;
             }
     }
-
+        //Hej//
     [WebMethod]
         public void Upload(byte[] contents,  string filenamesave)
         {

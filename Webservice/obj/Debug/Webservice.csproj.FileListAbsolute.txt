@@ -61,6 +61,5 @@ C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\W
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\bin\Microsoft.ApplicationInsights.xml
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\obj\Debug\Webservice.csprojResolveAssemblyReference.cache
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\obj\Debug\Webservice.dll
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\obj\Debug\Webservice.pdb

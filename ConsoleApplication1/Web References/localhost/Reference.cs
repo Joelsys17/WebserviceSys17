@@ -20,6 +20,7 @@ namespace ConsoleApplication1.localhost {
     using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
+    using System.Data;
     
     
     /// <remarks/>
@@ -30,6 +31,10 @@ namespace ConsoleApplication1.localhost {
     public partial class WebService1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback GetWebsiteHtmlOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback webobjectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sqlstringOperationCompleted;
         
         private System.Threading.SendOrPostCallback UploadOperationCompleted;
         
@@ -77,6 +82,12 @@ namespace ConsoleApplication1.localhost {
         public event GetWebsiteHtmlCompletedEventHandler GetWebsiteHtmlCompleted;
         
         /// <remarks/>
+        public event webobjectCompletedEventHandler webobjectCompleted;
+        
+        /// <remarks/>
+        public event sqlstringCompletedEventHandler sqlstringCompleted;
+        
+        /// <remarks/>
         public event UploadCompletedEventHandler UploadCompleted;
         
         /// <remarks/>
@@ -108,6 +119,60 @@ namespace ConsoleApplication1.localhost {
             if ((this.GetWebsiteHtmlCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetWebsiteHtmlCompleted(this, new GetWebsiteHtmlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://microsoft.com/webservices/webobject", RequestNamespace="http://microsoft.com/webservices/", ResponseNamespace="http://microsoft.com/webservices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable webobject() {
+            object[] results = this.Invoke("webobject", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void webobjectAsync() {
+            this.webobjectAsync(null);
+        }
+        
+        /// <remarks/>
+        public void webobjectAsync(object userState) {
+            if ((this.webobjectOperationCompleted == null)) {
+                this.webobjectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnwebobjectOperationCompleted);
+            }
+            this.InvokeAsync("webobject", new object[0], this.webobjectOperationCompleted, userState);
+        }
+        
+        private void OnwebobjectOperationCompleted(object arg) {
+            if ((this.webobjectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.webobjectCompleted(this, new webobjectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://microsoft.com/webservices/sqlstring", RequestNamespace="http://microsoft.com/webservices/", ResponseNamespace="http://microsoft.com/webservices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable sqlstring() {
+            object[] results = this.Invoke("sqlstring", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sqlstringAsync() {
+            this.sqlstringAsync(null);
+        }
+        
+        /// <remarks/>
+        public void sqlstringAsync(object userState) {
+            if ((this.sqlstringOperationCompleted == null)) {
+                this.sqlstringOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsqlstringOperationCompleted);
+            }
+            this.InvokeAsync("sqlstring", new object[0], this.sqlstringOperationCompleted, userState);
+        }
+        
+        private void OnsqlstringOperationCompleted(object arg) {
+            if ((this.sqlstringCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sqlstringCompleted(this, new sqlstringCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -211,6 +276,58 @@ namespace ConsoleApplication1.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void webobjectCompletedEventHandler(object sender, webobjectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class webobjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal webobjectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void sqlstringCompletedEventHandler(object sender, sqlstringCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sqlstringCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sqlstringCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
             }
         }
     }
