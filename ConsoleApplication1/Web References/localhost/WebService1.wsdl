@@ -16,23 +16,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="webobject">
+      <s:element name="objects">
         <s:complexType />
       </s:element>
-      <s:element name="webobjectResponse">
+      <s:element name="objectsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="webobjectResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="objectsResult" type="tns:ArrayOfAnyType" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="sqlstring">
         <s:complexType />
       </s:element>
@@ -83,11 +81,11 @@
   <wsdl:message name="GetWebsiteHtmlSoapOut">
     <wsdl:part name="parameters" element="tns:GetWebsiteHtmlResponse" />
   </wsdl:message>
-  <wsdl:message name="webobjectSoapIn">
-    <wsdl:part name="parameters" element="tns:webobject" />
+  <wsdl:message name="objectsSoapIn">
+    <wsdl:part name="parameters" element="tns:objects" />
   </wsdl:message>
-  <wsdl:message name="webobjectSoapOut">
-    <wsdl:part name="parameters" element="tns:webobjectResponse" />
+  <wsdl:message name="objectsSoapOut">
+    <wsdl:part name="parameters" element="tns:objectsResponse" />
   </wsdl:message>
   <wsdl:message name="sqlstringSoapIn">
     <wsdl:part name="parameters" element="tns:sqlstring" />
@@ -112,9 +110,9 @@
       <wsdl:input message="tns:GetWebsiteHtmlSoapIn" />
       <wsdl:output message="tns:GetWebsiteHtmlSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="webobject">
-      <wsdl:input message="tns:webobjectSoapIn" />
-      <wsdl:output message="tns:webobjectSoapOut" />
+    <wsdl:operation name="objects">
+      <wsdl:input message="tns:objectsSoapIn" />
+      <wsdl:output message="tns:objectsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="sqlstring">
       <wsdl:input message="tns:sqlstringSoapIn" />
@@ -140,8 +138,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="webobject">
-      <soap:operation soapAction="http://microsoft.com/webservices/webobject" style="document" />
+    <wsdl:operation name="objects">
+      <soap:operation soapAction="http://microsoft.com/webservices/objects" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -188,8 +186,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="webobject">
-      <soap12:operation soapAction="http://microsoft.com/webservices/webobject" style="document" />
+    <wsdl:operation name="objects">
+      <soap12:operation soapAction="http://microsoft.com/webservices/objects" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

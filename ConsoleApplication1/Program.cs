@@ -17,8 +17,11 @@ namespace ConsoleApplication1
             obj.GetWebsiteHtml(UserInput);
             Console.WriteLine("File contains:" + obj.GetWebsiteHtml(UserInput));
             Console.ReadKey();
-            Console.WriteLine("Here is objects in database:" + obj.sqlstring());
-            Console.ReadKey();
+            Console.WriteLine("Here is objects in database:");
+            foreach (Object obs in obj.objects())
+                Console.Write("{0}", obs);
+            Console.WriteLine();
+        Console.ReadKey();
 
         }
 

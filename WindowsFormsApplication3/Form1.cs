@@ -73,7 +73,7 @@ namespace WindowsFormsApplication3
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = obj.webobject();
+            dataGridView1.DataSource = obj.objects();
         }
     }
 }

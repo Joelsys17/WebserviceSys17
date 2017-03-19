@@ -28,11 +28,12 @@ namespace ConsoleApplication1.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WebService1Soap", Namespace="http://microsoft.com/webservices/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(object[]))]
     public partial class WebService1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback GetWebsiteHtmlOperationCompleted;
         
-        private System.Threading.SendOrPostCallback webobjectOperationCompleted;
+        private System.Threading.SendOrPostCallback objectsOperationCompleted;
         
         private System.Threading.SendOrPostCallback sqlstringOperationCompleted;
         
@@ -82,7 +83,7 @@ namespace ConsoleApplication1.localhost {
         public event GetWebsiteHtmlCompletedEventHandler GetWebsiteHtmlCompleted;
         
         /// <remarks/>
-        public event webobjectCompletedEventHandler webobjectCompleted;
+        public event objectsCompletedEventHandler objectsCompleted;
         
         /// <remarks/>
         public event sqlstringCompletedEventHandler sqlstringCompleted;
@@ -123,29 +124,29 @@ namespace ConsoleApplication1.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://microsoft.com/webservices/webobject", RequestNamespace="http://microsoft.com/webservices/", ResponseNamespace="http://microsoft.com/webservices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataTable webobject() {
-            object[] results = this.Invoke("webobject", new object[0]);
-            return ((System.Data.DataTable)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://microsoft.com/webservices/objects", RequestNamespace="http://microsoft.com/webservices/", ResponseNamespace="http://microsoft.com/webservices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] objects() {
+            object[] results = this.Invoke("objects", new object[0]);
+            return ((object[])(results[0]));
         }
         
         /// <remarks/>
-        public void webobjectAsync() {
-            this.webobjectAsync(null);
+        public void objectsAsync() {
+            this.objectsAsync(null);
         }
         
         /// <remarks/>
-        public void webobjectAsync(object userState) {
-            if ((this.webobjectOperationCompleted == null)) {
-                this.webobjectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnwebobjectOperationCompleted);
+        public void objectsAsync(object userState) {
+            if ((this.objectsOperationCompleted == null)) {
+                this.objectsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnobjectsOperationCompleted);
             }
-            this.InvokeAsync("webobject", new object[0], this.webobjectOperationCompleted, userState);
+            this.InvokeAsync("objects", new object[0], this.objectsOperationCompleted, userState);
         }
         
-        private void OnwebobjectOperationCompleted(object arg) {
-            if ((this.webobjectCompleted != null)) {
+        private void OnobjectsOperationCompleted(object arg) {
+            if ((this.objectsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.webobjectCompleted(this, new webobjectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.objectsCompleted(this, new objectsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -282,26 +283,26 @@ namespace ConsoleApplication1.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void webobjectCompletedEventHandler(object sender, webobjectCompletedEventArgs e);
+    public delegate void objectsCompletedEventHandler(object sender, objectsCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class webobjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class objectsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal webobjectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal objectsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public System.Data.DataTable Result {
+        public object[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((System.Data.DataTable)(this.results[0]));
+                return ((object[])(this.results[0]));
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -6,9 +7,11 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Services;
+using System.Xml.Linq;
 
 namespace Webservice
 {
@@ -37,22 +40,27 @@ namespace Webservice
         }
 
         [WebMethod]
-        public DataTable webobject()
+        public ArrayList objects()
         {
             try
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM sys.objects WHERE schema_id = SCHEMA_ID('dbo')", con);
-                DataTable dt = new DataTable();
+                DataTable list = new DataTable();
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                dt.TableName = "All objects";
-                sda.Fill(dt);
-                return dt;
+                list.TableName = "All objects";
+                sda.Fill(list);
+                ArrayList rows = new ArrayList();
+                foreach (DataRow dataRow in list.Rows)
+                    rows.Add(string.Join(";", dataRow.ItemArray.Select(item => item.ToString())));
+                return rows;
+
             }
             catch (SqlException)
             {
                 throw;
             }
         }
+
 
         [WebMethod]
     public DataTable sqlstring()
