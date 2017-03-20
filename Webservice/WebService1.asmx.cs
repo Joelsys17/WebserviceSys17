@@ -61,6 +61,55 @@ namespace Webservice
             }
         }
 
+        [WebMethod]
+        public List<String>[] javaobjects()
+        {
+            try
+            {
+                ArrayList array = new ArrayList();
+                ArrayList listColumns = new ArrayList();
+                var columnNames = getObjects().Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+                var stringArr = getObjects().
+
+                List<String> list1 = columnNames.OfType<String>().ToList();
+                List<String> list2 = stringArr.OfType<String>().ToList();
+                
+
+                List<String>[] arr = new List<String>[2];
+                arr[0] = list1;
+                arr[1] = list2;
+                return arr;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+        public List<Object> ToArray()
+        {
+            var ret = Array.CreateInstance(typeof(object), getObjects().Rows.Count, getObjects().Columns.Count) as object[,];
+            for (var i = 0; i < getObjects().Rows.Count - 1; i++)
+                for (var j = 0; j < getObjects().Columns.Count - 1; j++)
+                    ret[i, j] = getObjects().Rows[i][j];
+            List<object> list = ret.OfType<Object>().ToList();
+            return list;
+        }
+        public DataTable getObjects()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT name, object_id, schema_id, parent_object_id, type, type_desc, create_date, modify_date, is_ms_shipped, is_published, is_schema_published FROM sys.objects WHERE schema_id = SCHEMA_ID('dbo')", con);
+                DataTable list = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                list.TableName = "All objects";
+                sda.Fill(list);
+                return list;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
 
         [WebMethod]
     public DataTable sqlstring()

@@ -35,6 +35,8 @@ namespace WindowsFormsApplication3.localhost {
         
         private System.Threading.SendOrPostCallback objectsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback javaobjectsOperationCompleted;
+        
         private System.Threading.SendOrPostCallback sqlstringOperationCompleted;
         
         private System.Threading.SendOrPostCallback UploadOperationCompleted;
@@ -84,6 +86,9 @@ namespace WindowsFormsApplication3.localhost {
         
         /// <remarks/>
         public event objectsCompletedEventHandler objectsCompleted;
+        
+        /// <remarks/>
+        public event javaobjectsCompletedEventHandler javaobjectsCompleted;
         
         /// <remarks/>
         public event sqlstringCompletedEventHandler sqlstringCompleted;
@@ -147,6 +152,35 @@ namespace WindowsFormsApplication3.localhost {
             if ((this.objectsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.objectsCompleted(this, new objectsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://microsoft.com/webservices/javaobjects", RequestNamespace="http://microsoft.com/webservices/", ResponseNamespace="http://microsoft.com/webservices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
+        public string[][] javaobjects() {
+            object[] results = this.Invoke("javaobjects", new object[0]);
+            return ((string[][])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void javaobjectsAsync() {
+            this.javaobjectsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void javaobjectsAsync(object userState) {
+            if ((this.javaobjectsOperationCompleted == null)) {
+                this.javaobjectsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnjavaobjectsOperationCompleted);
+            }
+            this.InvokeAsync("javaobjects", new object[0], this.javaobjectsOperationCompleted, userState);
+        }
+        
+        private void OnjavaobjectsOperationCompleted(object arg) {
+            if ((this.javaobjectsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.javaobjectsCompleted(this, new javaobjectsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -303,6 +337,32 @@ namespace WindowsFormsApplication3.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void javaobjectsCompletedEventHandler(object sender, javaobjectsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class javaobjectsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal javaobjectsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string[][] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string[][])(this.results[0]));
             }
         }
     }

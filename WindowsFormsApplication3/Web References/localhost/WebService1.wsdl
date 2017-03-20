@@ -31,6 +31,26 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
         </s:sequence>
       </s:complexType>
+      <s:element name="javaobjects">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="javaobjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="javaobjectsResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="sqlstring">
         <s:complexType />
       </s:element>
@@ -87,6 +107,12 @@
   <wsdl:message name="objectsSoapOut">
     <wsdl:part name="parameters" element="tns:objectsResponse" />
   </wsdl:message>
+  <wsdl:message name="javaobjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:javaobjects" />
+  </wsdl:message>
+  <wsdl:message name="javaobjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:javaobjectsResponse" />
+  </wsdl:message>
   <wsdl:message name="sqlstringSoapIn">
     <wsdl:part name="parameters" element="tns:sqlstring" />
   </wsdl:message>
@@ -114,6 +140,10 @@
       <wsdl:input message="tns:objectsSoapIn" />
       <wsdl:output message="tns:objectsSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="javaobjects">
+      <wsdl:input message="tns:javaobjectsSoapIn" />
+      <wsdl:output message="tns:javaobjectsSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="sqlstring">
       <wsdl:input message="tns:sqlstringSoapIn" />
       <wsdl:output message="tns:sqlstringSoapOut" />
@@ -140,6 +170,15 @@
     </wsdl:operation>
     <wsdl:operation name="objects">
       <soap:operation soapAction="http://microsoft.com/webservices/objects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="javaobjects">
+      <soap:operation soapAction="http://microsoft.com/webservices/javaobjects" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -188,6 +227,15 @@
     </wsdl:operation>
     <wsdl:operation name="objects">
       <soap12:operation soapAction="http://microsoft.com/webservices/objects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="javaobjects">
+      <soap12:operation soapAction="http://microsoft.com/webservices/javaobjects" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
