@@ -7,3 +7,12 @@ C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\W
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache

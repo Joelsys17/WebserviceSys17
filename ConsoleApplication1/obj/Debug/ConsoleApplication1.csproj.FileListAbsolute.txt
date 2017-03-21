@@ -10,3 +10,9 @@ C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\C
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\ConsoleApplication1\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

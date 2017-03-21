@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://microsoft.com/webservices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://microsoft.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/webservices/">
+      <s:element name="GetWebsiteHtml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebsiteHtmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWebsiteHtmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objects">
+        <s:complexType />
+      </s:element>
+      <s:element name="objectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objectsResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="javaobjects">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="javaobjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="javaobjectsResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTable">
+        <s:complexType />
+      </s:element>
+      <s:element name="getTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTableResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ToArray">
+        <s:complexType />
+      </s:element>
+      <s:element name="ToArrayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ToArrayResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sqlstring">
+        <s:complexType />
+      </s:element>
+      <s:element name="sqlstringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sqlstringResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Upload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contents" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="filenamesave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="txtFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="txtFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="txtFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWebsiteHtmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWebsiteHtml" />
+  </wsdl:message>
+  <wsdl:message name="GetWebsiteHtmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebsiteHtmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="objectsSoapIn">
+    <wsdl:part name="parameters" element="tns:objects" />
+  </wsdl:message>
+  <wsdl:message name="objectsSoapOut">
+    <wsdl:part name="parameters" element="tns:objectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="javaobjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:javaobjects" />
+  </wsdl:message>
+  <wsdl:message name="javaobjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:javaobjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTableSoapIn">
+    <wsdl:part name="parameters" element="tns:getTable" />
+  </wsdl:message>
+  <wsdl:message name="getTableSoapOut">
+    <wsdl:part name="parameters" element="tns:getTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ToArraySoapIn">
+    <wsdl:part name="parameters" element="tns:ToArray" />
+  </wsdl:message>
+  <wsdl:message name="ToArraySoapOut">
+    <wsdl:part name="parameters" element="tns:ToArrayResponse" />
+  </wsdl:message>
+  <wsdl:message name="sqlstringSoapIn">
+    <wsdl:part name="parameters" element="tns:sqlstring" />
+  </wsdl:message>
+  <wsdl:message name="sqlstringSoapOut">
+    <wsdl:part name="parameters" element="tns:sqlstringResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadSoapIn">
+    <wsdl:part name="parameters" element="tns:Upload" />
+  </wsdl:message>
+  <wsdl:message name="UploadSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="txtFileSoapIn">
+    <wsdl:part name="parameters" element="tns:txtFile" />
+  </wsdl:message>
+  <wsdl:message name="txtFileSoapOut">
+    <wsdl:part name="parameters" element="tns:txtFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="GetWebsiteHtml">
+      <wsdl:input message="tns:GetWebsiteHtmlSoapIn" />
+      <wsdl:output message="tns:GetWebsiteHtmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="objects">
+      <wsdl:input message="tns:objectsSoapIn" />
+      <wsdl:output message="tns:objectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="javaobjects">
+      <wsdl:input message="tns:javaobjectsSoapIn" />
+      <wsdl:output message="tns:javaobjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTable">
+      <wsdl:input message="tns:getTableSoapIn" />
+      <wsdl:output message="tns:getTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ToArray">
+      <wsdl:input message="tns:ToArraySoapIn" />
+      <wsdl:output message="tns:ToArraySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sqlstring">
+      <wsdl:input message="tns:sqlstringSoapIn" />
+      <wsdl:output message="tns:sqlstringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <wsdl:input message="tns:UploadSoapIn" />
+      <wsdl:output message="tns:UploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="txtFile">
+      <wsdl:input message="tns:txtFileSoapIn" />
+      <wsdl:output message="tns:txtFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWebsiteHtml">
+      <soap:operation soapAction="http://microsoft.com/webservices/GetWebsiteHtml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="objects">
+      <soap:operation soapAction="http://microsoft.com/webservices/objects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="javaobjects">
+      <soap:operation soapAction="http://microsoft.com/webservices/javaobjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTable">
+      <soap:operation soapAction="http://microsoft.com/webservices/getTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToArray">
+      <soap:operation soapAction="http://microsoft.com/webservices/ToArray" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sqlstring">
+      <soap:operation soapAction="http://microsoft.com/webservices/sqlstring" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://microsoft.com/webservices/Upload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="txtFile">
+      <soap:operation soapAction="http://microsoft.com/webservices/txtFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWebsiteHtml">
+      <soap12:operation soapAction="http://microsoft.com/webservices/GetWebsiteHtml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="objects">
+      <soap12:operation soapAction="http://microsoft.com/webservices/objects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="javaobjects">
+      <soap12:operation soapAction="http://microsoft.com/webservices/javaobjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTable">
+      <soap12:operation soapAction="http://microsoft.com/webservices/getTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToArray">
+      <soap12:operation soapAction="http://microsoft.com/webservices/ToArray" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sqlstring">
+      <soap12:operation soapAction="http://microsoft.com/webservices/sqlstring" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap12:operation soapAction="http://microsoft.com/webservices/Upload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="txtFile">
+      <soap12:operation soapAction="http://microsoft.com/webservices/txtFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:56295/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:56295/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

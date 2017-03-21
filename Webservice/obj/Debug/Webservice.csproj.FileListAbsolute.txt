@@ -63,3 +63,36 @@ C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\W
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\obj\Debug\Webservice.dll
 C:\Users\Joel\Documents\Visual Studio 2015\Projects\Webservice\WebserviceSys17\Webservice\obj\Debug\Webservice.pdb
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\ApplicationInsights.config
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\csc.exe
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\vbc.exe
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\VBCSCompiler.exe
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Webservice.dll.config
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Webservice.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Webservice.pdb
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.Web.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.ApplicationInsights.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.Web.xml
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.ApplicationInsights.xml
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\obj\Debug\Webservice.csprojResolveAssemblyReference.cache
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\obj\Debug\Webservice.dll
+C:\Users\gedda\Documents\GitHub\WebserviceSys17\Webservice\obj\Debug\Webservice.pdb
