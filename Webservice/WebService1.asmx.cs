@@ -67,12 +67,22 @@ namespace Webservice
             try
             {
                 ArrayList array = new ArrayList();
-                ArrayList listColumns = new ArrayList();
+                ArrayList listColumns = new ArrayList(getObjects().Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray());
                 var columnNames = getObjects().Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
-                var stringArr = getObjects().
+                foreach (DataRow row in getObjects().Rows)
+                {
+                    foreach (DataColumn column in getObjects().Columns)
+                    {
+                        if (row[column.ColumnName] != null)
+                        {
+                            var stringArr = row[column.ColumnName].ToString();
+                            array.Add(stringArr);
+                        }
+                    }
+                }
 
-                List<String> list1 = columnNames.OfType<String>().ToList();
-                List<String> list2 = stringArr.OfType<String>().ToList();
+                List<String> list1 = listColumns.OfType<string>().ToList();
+                List<string> list2 = dsToArray().OfType<string>().ToList();
                 
 
                 List<String>[] arr = new List<String>[2];
@@ -85,6 +95,45 @@ namespace Webservice
                 throw;
             }
         }
+        public ArrayList dsToArray()
+        {
+            ArrayList array = new ArrayList();
+            DataTable dt = getObjects();
+
+            ArrayList listColumns = new ArrayList();
+            foreach (DataColumn column in dt.Columns)
+                listColumns.Add(column.ColumnName);
+            array.Add(listColumns);
+
+            foreach (DataRow r in dt.Rows)
+            {
+                ArrayList row = new ArrayList();
+                foreach (object value in r.ItemArray)
+                    row.Add(value);
+
+                array.Add(row);
+            }
+            return array;
+        }
+        [WebMethod]
+        public ArrayList getTable()
+        {
+            ArrayList list = new ArrayList();
+            object[] o = dsToArray().ToArray();
+            for (int i = 0; i < o.Length; i++)
+            {
+                ArrayList row = new ArrayList();
+                Object[] content = (Object[])o[i];
+                for (int j = 0; j < content.Length; j++)
+                {
+                    row.Add(content[j].ToString());
+                }
+                list.Add(row);
+            }
+            return list;
+        }
+
+        [WebMethod]
         public List<Object> ToArray()
         {
             var ret = Array.CreateInstance(typeof(object), getObjects().Rows.Count, getObjects().Columns.Count) as object[,];
