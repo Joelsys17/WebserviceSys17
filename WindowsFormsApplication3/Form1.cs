@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication3.ServiceReference3;
 
 namespace WindowsFormsApplication3
 {
@@ -16,7 +12,10 @@ namespace WindowsFormsApplication3
         {
             InitializeComponent();
         }
-        localhost.WebService1 obj = new localhost.WebService1();
+
+        private SqlConnection con = new SqlConnection(@"Data Source=GEDDA;Initial Catalog=Cronus;Integrated Security=True");
+        WebService2SoapClient service = new WebService2SoapClient();
+
 
         protected override void WndProc(ref Message m)
         {
@@ -50,7 +49,7 @@ namespace WindowsFormsApplication3
         private void LoadButton_Click(object sender, EventArgs e)
         {
             string load = SearchButton.Text;
-            richTextBox1.Text = obj.GetWebsiteHtml(load);
+            richTextBox1.Text = service.GetWebsiteHtml(load);
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -73,7 +72,7 @@ namespace WindowsFormsApplication3
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            Object[] fisk = obj.javaobjects();
+            Object[] fisk = service.dsToArray();
             dataGridView1.DataSource = fisk;
         }
     }
