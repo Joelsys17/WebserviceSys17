@@ -72,8 +72,7 @@ namespace WindowsFormsApplication3
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            Object[] fisk = service.dsToArray();
-            dataGridView1.DataSource = fisk;
+            dataGridView1.DataSource = service.sqlstring();
         }
     }
 }
