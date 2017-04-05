@@ -94,6 +94,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Service References\ServiceReference3\WebService.wsdl" />
+    <None Include="Service References\ServiceReference3\WindowsFormsApplication3.ServiceReference3.JavaFindUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference3\WindowsFormsApplication3.ServiceReference3.JavaUppgiftWebserviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference3\WindowsFormsApplication3.ServiceReference3.UploadResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

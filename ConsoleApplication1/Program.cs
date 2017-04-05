@@ -12,18 +12,21 @@ namespace ConsoleApplication1
             string UserInput = Console.ReadLine();
             Console.WriteLine("You have entered: " + UserInput);
             service.GetWebsiteHtml(UserInput);
-            Console.WriteLine("File contains:" + service.GetWebsiteHtml(UserInput));
+            Console.WriteLine("File contains: " + service.GetWebsiteHtml(UserInput));
+            Console.WriteLine("Press any key");
             Console.ReadKey();
             Console.WriteLine("Here is objects in database:");
-            foreach (object obs in service.objects())
-                Console.Write("{0}", obs);
+            foreach (string s in service.objects2())
+            {
+                Console.WriteLine(s);
+            }
             Console.WriteLine();
             Console.ReadKey();
 
 
         }
 
-
+       
     }
 }
 

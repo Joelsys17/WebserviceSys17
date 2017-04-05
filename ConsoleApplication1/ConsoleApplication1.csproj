@@ -74,6 +74,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\ServiceReference3\ConsoleApplication1.ServiceReference3.JavaFindUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference3\ConsoleApplication1.ServiceReference3.JavaUppgiftWebserviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference3\ConsoleApplication1.ServiceReference3.UploadResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
